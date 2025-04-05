@@ -59,7 +59,7 @@ const Edit = ( props ) => {
 	const onSelectIcon = ( iconKey, event ) => {
 		event.preventDefault();
 
-		const iconHTML = `<i class="${ namespace }-icons-${ iconKey }"></i>`;
+		const iconHTML = `<i class="${ namespace }-icons--${ iconKey }" style="display:inline-block;width:1em"></i>`;
 		const iconValue = create( { html: iconHTML } );
 
 		// Always insert at the end of the selection to avoid removing text
