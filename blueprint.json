@@ -1,0 +1,50 @@
+{
+	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
+	"preferredVersions": {
+		"php": "8.3",
+		"wp": "latest"
+	},
+	"features": {
+		"networking": true
+	},
+	"login": true,
+	"landingPage": "/index.php",
+	"steps": [
+		{
+			"step": "defineWpConfigConsts",
+			"consts": {
+				"WP_DEBUG": true,
+				"WP_DEBUG_DISPLAY": true
+			}
+		},
+		{
+			"step": "resetData"
+		},
+		{
+			"step": "writeFile",
+			"path": "/wordpress/wp-content/mu-plugins/rewrite.php",
+			"data": "<?php /* Use pretty permalinks */ add_action( 'after_setup_theme', function() { global $wp_rewrite; $wp_rewrite->set_permalink_structure('/%postname%/'); $wp_rewrite->flush_rules(); } );"
+		},
+		{
+			"step": "updateUserMeta",
+			"meta": {
+				"first_name": "Marcos",
+				"last_name": "Schratzenstaller"
+			},
+			"userId": 1
+		},
+		{
+			"step": "installTheme",
+			"themeData": {
+				"resource": "url",
+				"url": ""
+			},
+			"options": {
+				"activate": true
+			}
+		}
+	],
+	"siteOptions": {
+		"blogname": "EQUALS TRUE"
+	}
+}

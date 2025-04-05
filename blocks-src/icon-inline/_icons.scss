@@ -1,0 +1,34 @@
+$equalstrue-icons-font: "equalstrue-icons" !default;
+$equalstrue-icons-font-dir: "../../assets/fonts/equalstrue-icons" !default;
+$equalstrue-icons-font-file: "#{$equalstrue-icons-font-dir}/#{$equalstrue-icons-font}" !default;
+$equalstrue-icons-font-hash: "19a4f398d922882f1f39a97d89bc42a4" !default;
+$equalstrue-icons-font-src: url("#{$equalstrue-icons-font-file}.woff2?#{$equalstrue-icons-font-hash}") format("woff2") !default;
+
+@font-face {
+  font-display: block;
+  font-family: $equalstrue-icons-font;
+  src: $equalstrue-icons-font-src;
+}
+
+[class^="equalstrue-icons-"]::before,
+[class*=" equalstrue-icons-"]::before {
+  display: inline-block;
+  font-family: $equalstrue-icons-font !important;
+  font-style: normal;
+  font-weight: normal !important;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: -.125em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+$equalstrue-icons-map: (
+  "arrow-up-right": "\f144",
+  "equalstrue": "\f1a8",
+);
+
+@each $icon, $codepoint in $equalstrue-icons-map {
+  .equalstrue-icons-#{$icon}::before { content: $codepoint; }
+}

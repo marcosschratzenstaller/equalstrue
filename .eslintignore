@@ -1,0 +1,4 @@
+blocks
+node_modules
+blocks-src/icon-inline/index copy*.js
+blocks-src/icon/*.js

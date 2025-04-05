@@ -1,0 +1,7 @@
+.git
+.distignore
+.editorconfig
+.gitignore
+package-lock.json
+package.json
+wp-cli.local.yml

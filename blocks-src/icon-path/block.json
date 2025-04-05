@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "equalstrue/icon-path",
+	"version": "1.0.0",
+	"title": "Icon path",
+	"example": {},
+	"attributes": {
+		"name": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "path",
+			"attribute": "data-name"
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"parent": [ "equalstrue/icon" ],
+	"textdomain": "equalstrue",
+	"editorScript": "file:./index.js"
+}
