@@ -47,6 +47,11 @@
 					"color": "#7a7a7a",
 					"name": "Boulder",
 					"slug": "boulder"
+				},
+				{
+					"color": "#f5f5f5",
+					"name": "Wild Sand",
+					"slug": "wild-sand"
 				}
 			]
 		},

@@ -27,7 +27,6 @@ if (firstName) {
 
 const importStatements = [];
 const iconNames = [];
-const iconsMapEntries = [];
 
 files.forEach(file => {
 	const filepath = path.join(inputDir, file);
@@ -42,7 +41,6 @@ files.forEach(file => {
 
 	importStatements.push(`import { ${componentName} } from './${filename}';`);
 	iconNames.push(componentName);
-	iconsMapEntries.push(`\t'${filename}': ${componentName},`);
 });
 
 // Generate index.js content
@@ -50,14 +48,10 @@ const indexContent = [
 	'// This file is generated. Do not modify it manually.',
 	...importStatements,
 	'',
-	'const iconsMap = {',
-	...iconsMapEntries,
-	'};',
-	'',
 	'export {',
 	...iconNames.map(name => `\t${name},`),
-	'\ticonsMap',
-	'};'
+	'};',
+	''
 ].join('\n');
 
 // Write the file

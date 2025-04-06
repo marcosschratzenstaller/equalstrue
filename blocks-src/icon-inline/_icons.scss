@@ -34,11 +34,18 @@ $equalstrue-icons-font-src: url("#{$equalstrue-icons-font-file}.woff2?#{$equalst
 
 $equalstrue-icons-map: (
 	"arrow-up-right": "\f144",
+	"arrows-fullscreen": "\f14d",
+	"binoculars": "\f18f",
+	"chat": "\f268",
 	"code-slash": "\f2c6",
-	"equalstrue": "\f1a8",
+	"crosshair": "\f769",
 	"graph-up-arrow": "\f673",
 	"hand-peace": "\f7f9",
+	"hand-waving": "\f904",
+	"resize": "\f905",
 	"rocket-takeoff": "\f845",
+	"speedometer": "\f57f",
+	"star": "\f588",
 );
 
 @each $icon, $codepoint in $equalstrue-icons-map {

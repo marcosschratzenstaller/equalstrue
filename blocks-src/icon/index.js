@@ -56,7 +56,7 @@ registerBlockType( metadata.name, {
 		};
 
 		return (
-			<div { ...useBlockProps() }>
+			<figure { ...useBlockProps() }>
 				{ hasChild && (
 					<BlockControls group="other">
 						<ToolbarButton
@@ -75,22 +75,23 @@ registerBlockType( metadata.name, {
 						hasChild ? false : InnerBlocks.ButtonBlockAppender
 					}
 				/>
-			</div>
+			</figure>
 		);
 	},
 	save: () => {
 		return (
-			<svg
-				{ ...useBlockProps.save() }
-				width="24"
-				height="24"
-				viewBox="0 0 24 24"
-				xmlns="http://www.w3.org/2000/svg"
-				aria-hidden="true"
-				focusable="false"
-			>
-				<InnerBlocks.Content />
-			</svg>
+			<figure { ...useBlockProps.save() }>
+				<svg
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					xmlns="http://www.w3.org/2000/svg"
+					aria-hidden="true"
+					focusable="false"
+				>
+					<InnerBlocks.Content />
+				</svg>
+			</figure>
 		);
 	},
 } );

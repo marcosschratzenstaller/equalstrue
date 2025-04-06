@@ -28,7 +28,8 @@ export default {
       params: {
         attrs: [
           'clip-rule',
-          'fill'
+          'fill',
+		  'style'
         ]
       }
     },
