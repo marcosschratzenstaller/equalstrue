@@ -9,9 +9,9 @@ registerBlockType( metadata.name, {
 	edit: ( { attributes } ) => {
 		const iconName = attributes.name;
 		const variation = variations.find(variation => variation.name === iconName);
-		const dValue = getPathD( variation.icon );
+		const dValue = variation ? getPathD( variation.icon ) : false;
 
-		return iconName && variation ? (
+		return iconName && variation && dValue ? (
 			<svg
 				width="24"
 				height="24"
@@ -29,9 +29,9 @@ registerBlockType( metadata.name, {
 	save: ( { attributes } ) => {
 		const iconName = attributes.name;
 		const variation = variations.find(variation => variation.name === iconName);
-		const dValue = getPathD( variation.icon );
+		const dValue = variation ? getPathD( variation.icon ) : false;
 
-		return iconName && variation ? (
+		return iconName && variation && dValue ? (
 			<path data-name={ iconName } d={ dValue }></path>
 		) : (
 			<></>

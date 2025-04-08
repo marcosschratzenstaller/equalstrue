@@ -110,8 +110,8 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"card","backgroundColor":"-ink-salmon","layout":{"type":"flex","orientation":"vertical"}} -->
-<div class="wp-block-group card has-ink-salmon-background-color has-background"><!-- wp:paragraph {"className":"is-style-heading"} -->
+<!-- wp:group {"className":"card","backgroundColor":"pink-salmon","layout":{"type":"flex","orientation":"vertical"}} -->
+<div class="wp-block-group card has-pink-salmon-background-color has-background"><!-- wp:paragraph {"className":"is-style-heading"} -->
 <p class="is-style-heading">Scalable like no other</p>
 <!-- /wp:paragraph -->
 

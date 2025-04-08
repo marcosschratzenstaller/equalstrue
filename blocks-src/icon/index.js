@@ -9,7 +9,6 @@ import { useSelect, useDispatch } from '@wordpress/data';
 import { SVG, Path } from '@wordpress/primitives';
 
 import './style.scss';
-import './editor.scss';
 
 import metadata from './block.json';
 

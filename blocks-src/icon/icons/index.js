@@ -1,11 +1,14 @@
 // This file is generated. Do not modify it manually.
-import { EqualsTrueIcon } from './equalstrue';
-import { ArrowUpRightIcon } from './arrow-up-right';
 import { ArrowsFullscreenIcon } from './arrows-fullscreen';
 import { BinocularsIcon } from './binoculars';
+import { BracesIcon } from './braces';
 import { ChatIcon } from './chat';
 import { CodeSlashIcon } from './code-slash';
+import { CrossIcon } from './cross';
 import { CrosshairIcon } from './crosshair';
+import { CursorBothIcon } from './cursor-both';
+import { CursorFillIcon } from './cursor-fill';
+import { CursorLineIcon } from './cursor-line';
 import { GraphUpArrowIcon } from './graph-up-arrow';
 import { HandPeaceIcon } from './hand-peace';
 import { HandWavingIcon } from './hand-waving';
@@ -15,13 +18,16 @@ import { SpeedometerIcon } from './speedometer';
 import { StarIcon } from './star';
 
 export {
-	EqualsTrueIcon,
-	ArrowUpRightIcon,
 	ArrowsFullscreenIcon,
 	BinocularsIcon,
+	BracesIcon,
 	ChatIcon,
 	CodeSlashIcon,
+	CrossIcon,
 	CrosshairIcon,
+	CursorBothIcon,
+	CursorFillIcon,
+	CursorLineIcon,
 	GraphUpArrowIcon,
 	HandPeaceIcon,
 	HandWavingIcon,

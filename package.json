@@ -8,14 +8,12 @@
 		"packages-update": "wp-scripts packages-update",
 		"plugin-zip": "wp-scripts plugin-zip",
 		"generate-hash": "node build/generate-hash.mjs",
-		"icons": "npm-run-all icons-main --aggregate-output --parallel icons-font icons-block",
+		"icons": "npm-run-all icons-main --aggregate-output --parallel icons-block",
 		"icons-main": "node build/build-svgs.mjs",
-		"icons-font": "npm-run-all icons-font-*",
-		"icons-font-main": "fantasticon",
 		"icons-block": "npm-run-all icons-block-*",
-		"icons-block-files": "node build/convert-svg.js --capitalize=equalstrue:EqualsTrue",
-		"icons-block-index": "node build/generate-index.js --first=equalstrue",
-		"icons-block-variations": "node build/generate-variations.js --capitalize=equalstrue:'Equals True'",
+		"icons-block-files": "node build/convert-svg.js",
+		"icons-block-index": "node build/generate-index.js",
+		"icons-block-variations": "node build/generate-variations.js",
 		"start": "wp-scripts start --blocks-manifest --source-path=blocks-src --output-path=blocks --webpack-copy-php"
 	},
 	"devDependencies": {

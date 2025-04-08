@@ -1,11 +1,14 @@
 // This file is generated. Do not modify it manually.
-import { EqualsTrueIcon } from '../icon/icons';
-import { ArrowUpRightIcon } from '../icon/icons';
 import { ArrowsFullscreenIcon } from '../icon/icons';
 import { BinocularsIcon } from '../icon/icons';
+import { BracesIcon } from '../icon/icons';
 import { ChatIcon } from '../icon/icons';
 import { CodeSlashIcon } from '../icon/icons';
+import { CrossIcon } from '../icon/icons';
 import { CrosshairIcon } from '../icon/icons';
+import { CursorBothIcon } from '../icon/icons';
+import { CursorFillIcon } from '../icon/icons';
+import { CursorLineIcon } from '../icon/icons';
 import { GraphUpArrowIcon } from '../icon/icons';
 import { HandPeaceIcon } from '../icon/icons';
 import { HandWavingIcon } from '../icon/icons';
@@ -17,20 +20,6 @@ import { StarIcon } from '../icon/icons';
 const variations = [
 	{
 		isDefault: true,
-		name: 'equalstrue',
-		title: 'Equals True',
-		icon: EqualsTrueIcon,
-		attributes: { name: 'equalstrue' }
-	},
-	{
-		isDefault: false,
-		name: 'arrow-up-right',
-		title: 'Arrow up right',
-		icon: ArrowUpRightIcon,
-		attributes: { name: 'arrow-up-right' }
-	},
-	{
-		isDefault: false,
 		name: 'arrows-fullscreen',
 		title: 'Arrows fullscreen',
 		icon: ArrowsFullscreenIcon,
@@ -42,6 +31,13 @@ const variations = [
 		title: 'Binoculars',
 		icon: BinocularsIcon,
 		attributes: { name: 'binoculars' }
+	},
+	{
+		isDefault: false,
+		name: 'braces',
+		title: 'Braces',
+		icon: BracesIcon,
+		attributes: { name: 'braces' }
 	},
 	{
 		isDefault: false,
@@ -59,10 +55,38 @@ const variations = [
 	},
 	{
 		isDefault: false,
+		name: 'cross',
+		title: 'Cross',
+		icon: CrossIcon,
+		attributes: { name: 'cross' }
+	},
+	{
+		isDefault: false,
 		name: 'crosshair',
 		title: 'Crosshair',
 		icon: CrosshairIcon,
 		attributes: { name: 'crosshair' }
+	},
+	{
+		isDefault: false,
+		name: 'cursor-both',
+		title: 'Cursor both',
+		icon: CursorBothIcon,
+		attributes: { name: 'cursor-both' }
+	},
+	{
+		isDefault: false,
+		name: 'cursor-fill',
+		title: 'Cursor fill',
+		icon: CursorFillIcon,
+		attributes: { name: 'cursor-fill' }
+	},
+	{
+		isDefault: false,
+		name: 'cursor-line',
+		title: 'Cursor line',
+		icon: CursorLineIcon,
+		attributes: { name: 'cursor-line' }
 	},
 	{
 		isDefault: false,

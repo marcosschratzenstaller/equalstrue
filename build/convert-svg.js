@@ -42,6 +42,15 @@ if (files.length === 0) {
 	process.exit(1);
 }
 
+// Clean all .js files in outputDir except index.js
+fs.readdirSync(outputDir).forEach(file => {
+	const filePath = path.join(outputDir, file);
+	if (file.endsWith('.js') && file !== 'index.js') {
+		fs.unlinkSync(filePath);
+		console.log(`Removed: ${filePath}`);
+	}
+});
+
 // Process each SVG
 files.forEach(file => {
 	const filePath = path.join(inputDir, file);
