@@ -105,10 +105,6 @@
 		</div>
 		<!-- /wp:group -->
 
-		<!-- wp:spacer {"height":"var:preset|spacing|70"} -->
-		<div style="height:var(--wp--preset--spacing--70)" aria-hidden="true" class="wp-block-spacer"></div>
-		<!-- /wp:spacer -->
-
 		<!-- wp:group {"align":"full","style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
 		<div class="wp-block-group alignfull">
 			<!-- wp:paragraph {"fontSize":"small"} -->

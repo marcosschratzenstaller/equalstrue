@@ -1,14 +1,11 @@
 // This file is generated. Do not modify it manually.
+import { ArrowRightIcon } from '../icon/icons';
 import { ArrowsFullscreenIcon } from '../icon/icons';
 import { BinocularsIcon } from '../icon/icons';
-import { BracesIcon } from '../icon/icons';
 import { ChatIcon } from '../icon/icons';
 import { CodeSlashIcon } from '../icon/icons';
 import { CrossIcon } from '../icon/icons';
 import { CrosshairIcon } from '../icon/icons';
-import { CursorBothIcon } from '../icon/icons';
-import { CursorFillIcon } from '../icon/icons';
-import { CursorLineIcon } from '../icon/icons';
 import { GraphUpArrowIcon } from '../icon/icons';
 import { HandPeaceIcon } from '../icon/icons';
 import { HandWavingIcon } from '../icon/icons';
@@ -20,6 +17,13 @@ import { StarIcon } from '../icon/icons';
 const variations = [
 	{
 		isDefault: true,
+		name: 'arrow-right',
+		title: 'Arrow right',
+		icon: ArrowRightIcon,
+		attributes: { name: 'arrow-right' }
+	},
+	{
+		isDefault: false,
 		name: 'arrows-fullscreen',
 		title: 'Arrows fullscreen',
 		icon: ArrowsFullscreenIcon,
@@ -31,13 +35,6 @@ const variations = [
 		title: 'Binoculars',
 		icon: BinocularsIcon,
 		attributes: { name: 'binoculars' }
-	},
-	{
-		isDefault: false,
-		name: 'braces',
-		title: 'Braces',
-		icon: BracesIcon,
-		attributes: { name: 'braces' }
 	},
 	{
 		isDefault: false,
@@ -66,27 +63,6 @@ const variations = [
 		title: 'Crosshair',
 		icon: CrosshairIcon,
 		attributes: { name: 'crosshair' }
-	},
-	{
-		isDefault: false,
-		name: 'cursor-both',
-		title: 'Cursor both',
-		icon: CursorBothIcon,
-		attributes: { name: 'cursor-both' }
-	},
-	{
-		isDefault: false,
-		name: 'cursor-fill',
-		title: 'Cursor fill',
-		icon: CursorFillIcon,
-		attributes: { name: 'cursor-fill' }
-	},
-	{
-		isDefault: false,
-		name: 'cursor-line',
-		title: 'Cursor line',
-		icon: CursorLineIcon,
-		attributes: { name: 'cursor-line' }
 	},
 	{
 		isDefault: false,

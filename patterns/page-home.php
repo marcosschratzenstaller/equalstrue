@@ -39,15 +39,15 @@
 
 <!-- wp:gallery {"imageCrop":false,"linkTo":"none","align":"wide","className":"gallery-home-section"} -->
 <figure class="wp-block-gallery alignwide has-nested-images columns-default gallery-home-section"><!-- wp:image {"linkDestination":"none"} -->
-<figure class="wp-block-image"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/picture-bespoke.webp" alt="Besoke"/></figure>
+<figure class="wp-block-image"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/picture-bespoke.webp" alt="Besoke"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/picture-remote.webp" alt="Remote"/></figure>
+<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/picture-remote.webp" alt="Remote"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"linkDestination":"none"} -->
-<figure class="wp-block-image"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/picture-teams.webp" alt="Teams"/></figure>
+<figure class="wp-block-image"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/picture-teams.webp" alt="Teams"/></figure>
 <!-- /wp:image --></figure>
 <!-- /wp:gallery -->
 
@@ -170,15 +170,15 @@
 <!-- wp:group {"tagName":"section","align":"wide","className":"multi-align-gallery-section","layout":{"type":"default"}} -->
 <section class="wp-block-group alignwide multi-align-gallery-section"><!-- wp:gallery {"imageCrop":false,"linkTo":"none"} -->
 <figure class="wp-block-gallery has-nested-images columns-default"><!-- wp:image {"linkDestination":"none"} -->
-<figure class="wp-block-image"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/picture-efficient.webp" alt="Efficient"/></figure>
+<figure class="wp-block-image"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/picture-efficient.webp" alt="Efficient"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"linkDestination":"none"} -->
-<figure class="wp-block-image"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/picture-effective.webp" alt="Effective"/></figure>
+<figure class="wp-block-image"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/picture-effective.webp" alt="Effective"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:image {"linkDestination":"none"} -->
-<figure class="wp-block-image"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/picture-sustainable.webp" alt="Sustainable"/></figure>
+<figure class="wp-block-image"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/picture-sustainable.webp" alt="Sustainable"/></figure>
 <!-- /wp:image --></figure>
 <!-- /wp:gallery -->
 

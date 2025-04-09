@@ -19,7 +19,7 @@
 				href="<?php echo esc_url( home_url( '/' ) ); ?>"
 				>
 				<img
-					src="<?php echo get_template_directory_uri(); ?>/assets/images/equalstrue-logo.svg"
+					src="<?php echo esc_attr( get_template_directory_uri() ); ?>/assets/images/equalstrue-logo.svg"
 					alt="<?php echo esc_attr( get_bloginfo( 'sitetitle' ) ); ?>"
 				/>
 			</a>
@@ -31,7 +31,7 @@
 			<!-- wp:button {"className":"is-style-outline"} -->
 			<div class="wp-block-button is-style-outline">
 				<a class="wp-block-button__link wp-element-button" href="#">
-				<?php esc_html_e( 'Hire Now', 'equalstrue' ); ?>
+				<?php esc_html_e( 'Hire Now', 'equalstruefront' ); ?>
 				</a>
 			</div>
 			<!-- /wp:button -->

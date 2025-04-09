@@ -522,14 +522,63 @@ p.is-style-heading {
 	}
 }
 .site-footer {
+	--wp--style--global--wide-size: 1226px;
 	padding-top: var(--wp--preset--spacing--50);
 	padding-bottom: var(--wp--preset--spacing--50);
+	font-size: 14px;
+	letter-spacing: 0.02em;
 }
 .site-footer:not(.has-background) {
 	background-color: var(--wp--preset--color--primary);
 }
 .site-footer:not(.has-text-color) {
 	color: var(--wp--preset--color--base);
+	/* color: #00f; */
+}
+.site-footer > .wp-block-group,
+.site-footer > .wp-block-group > .wp-block-group:last-child {
+	border-top: 1px solid var(--wp--preset--color--persian-plum);
+}
+.site-footer > .wp-block-group {
+	padding-top: 21px;
+}
+.site-footer p.wp-block-site-title,
+.site-footer p.is-style-heading {
+	font-size: 1.28571429em;
+	line-height: 1.55555556;
+	font-weight: 500;
+	letter-spacing: 0.03em;
+}
+.site-footer p:not(.wp-block-site-title):not(.is-style-heading) {
+	line-height: 31px;
+}
+.site-footer p.wp-block-site-title + .wp-block-navigation,
+.site-footer p.is-style-heading + .wp-block-navigation {
+	margin-top: 16px;
+}
+.site-footer p.is-style-heading + p {
+	margin-top: 11px;
+}
+.site-footer .wp-block-social-links + p.is-style-heading {
+	margin-top: 33px;
+}
+.site-footer p.is-style-heading + .wp-block-social-links {
+	margin-top: 16px;
+}
+.site-footer .wp-block-social-links + p.is-style-heading + p {
+	margin-top: 0;
+	line-height: 1.5;
+}
+.site-footer .is-vertical {
+	gap: 0;
+}
+.site-footer .wp-block-navigation {
+	gap: 0;
+	margin-top: -5px;
+}
+:root .site-footer :where(.wp-block-navigation-link a:where(:not(.wp-element-button))) {
+	letter-spacing: 0.02em;
+	padding: 5px 0;
 }
 .site-footer a {
 	color: inherit;
@@ -537,6 +586,28 @@ p.is-style-heading {
 }
 .site-footer img {
 	filter: brightness(0) invert(1);
+}
+.wp-block-social-links.is-layout-flex {
+	gap: 15px;
+}
+.wp-block-social-links .wp-social-link {
+	background-color: transparent;
+	border-radius: 0;
+}
+.wp-block-social-links .wp-social-link a {
+	background-color: #ff555a;
+	padding: 4px;
+	border-radius: 50%;
+}
+.site-footer > .wp-block-group > .wp-block-group:last-child {
+	padding-top: 9px;
+	margin-top: 27px;
+	color: var(--wp--preset--color--persian-plum);
+}
+.site-footer > .wp-block-group > .wp-block-group:last-child p:not(.wp-block-site-title):not(.is-style-heading) {
+	font-size: 13px !important;
+	line-height: 1.5;
+	letter-spacing: 0.015em;
 }
 @media (min-width: 1775px) {
 	.we-are-different-section > .alignfull {
