@@ -1,0 +1,19 @@
+.wp-block-equalstrue-newsletter-row {
+	position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+}
+
+.wp-block-equalstrue-newsletter-row > .wp-block-equalstrue-newsletter-field {
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    min-width: 0;
+}
+
+.wp-block-equalstrue-newsletter-row .wp-block-equalstrue-newsletter-button {
+	position: relative;
+	z-index: 2;
+}

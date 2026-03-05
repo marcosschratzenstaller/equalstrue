@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "equalstrue/newsletter",
+	"title": "Newsletter Signup (deprecated)",
+	"category": "widgets",
+	"icon": "email",
+	"description": "Simple newsletter signup form.",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"successMessage": {
+			"type": "string",
+			"default": "Thank you for subscribing!"
+		},
+		"errorMessage": {
+			"type": "string",
+			"default": "There was an error. Please try again."
+		}
+	},
+	"textdomain": "equalstrue",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

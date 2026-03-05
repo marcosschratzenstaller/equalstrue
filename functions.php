@@ -156,3 +156,5 @@ function equalstruefront_social_links( $block_content, $block ) {
 add_filter( 'render_block', 'equalstruefront_social_links', 10, 2 );
 
 require get_theme_file_path( 'inc/seo-description.php' );
+
+require get_theme_file_path( 'inc/newsletter-subscribe.php' );

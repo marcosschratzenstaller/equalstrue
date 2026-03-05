@@ -25,7 +25,12 @@
 			</a>
 		</figure>
 		<!-- /wp:image -->
-		<!-- wp:navigation {"overlayBackgroundColor":"base","overlayTextColor":"contrast","layout":{"type":"flex","justifyContent":"right","flexWrap":"wrap"}} /-->
+
+		<!-- wp:navigation {"overlayBackgroundColor":"base","overlayTextColor":"contrast","layout":{"type":"flex","justifyContent":"right","flexWrap":"wrap"}} -->
+			<!-- wp:navigation-link {"label":"Home","url":"<?php the_permalink( get_page_by_path( 'home' ) ); ?>"} /-->
+			<!-- wp:navigation-link {"label":"Opportunities","url":"<?php the_permalink( get_page_by_path( 'opportunities' ) ); ?>"} /-->
+			<!-- wp:navigation-link {"label":"Contact","url":"<?php the_permalink( get_page_by_path( 'contact' ) ); ?>"} /-->
+		<!-- /wp:navigation -->
 		<!-- wp:buttons -->
 		<div class="wp-block-buttons">
 			<!-- wp:button {"className":"is-style-outline"} -->

@@ -1,0 +1,15 @@
+.wp-block-equalstrue-newsletter-button {
+	user-select: none;
+	background-color: transparent;
+	border: 0;
+	border-radius: 0;
+	padding: 0;
+	font-size: inherit;
+	line-height: inherit;
+	box-sizing: border-box;
+	font-family: inherit;
+}
+
+.wp-block-equalstrue-newsletter-button:not(:disabled) {
+    cursor: pointer;
+}

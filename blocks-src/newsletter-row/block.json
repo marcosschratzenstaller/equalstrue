@@ -1,0 +1,16 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "equalstrue/newsletter-row",
+	"version": "1.0.0",
+	"category": "widgets",
+	"example": {},
+	"attributes": {},
+	"supports": {
+		"html": false
+	},
+	"allowedBlocks": [ "equalstrue/newsletter-field", "equalstrue/newsletter-button" ],
+	"textdomain": "equalstrue",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

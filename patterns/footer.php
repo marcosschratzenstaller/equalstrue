@@ -93,13 +93,25 @@
 				</ul>
 				<!-- /wp:social-links -->
 
-				<!-- wp:paragraph {"className":"is-style-heading"} -->
+				<!-- wp:equalstrue/newsletter-signup -->
+				<div class="wp-block-equalstrue-newsletter-signup"><!-- wp:paragraph {"className":"is-style-heading"} -->
 				<p class="is-style-heading">Newsletter</p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:paragraph -->
-				<p>Be the first to find out about our <br>latest job offers!</p>
+				<p>Be the first to find out about our<br>latest job offers!</p>
 				<!-- /wp:paragraph -->
+
+				<!-- wp:equalstrue/newsletter-row -->
+				<form class="wp-block-equalstrue-newsletter-row" method="POST"><!-- wp:equalstrue/newsletter-field -->
+				<input type="email" class="wp-block-equalstrue-newsletter-field" name="email"/>
+				<!-- /wp:equalstrue/newsletter-field -->
+
+				<!-- wp:equalstrue/newsletter-button -->
+				<button class="wp-block-equalstrue-newsletter-button" type="submit">Subscribe</button>
+				<!-- /wp:equalstrue/newsletter-button --></form>
+				<!-- /wp:equalstrue/newsletter-row --></div>
+				<!-- /wp:equalstrue/newsletter-signup -->
 			</div>
 			<!-- /wp:group -->
 		</div>

@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "equalstrue/newsletter-signup",
+	"version": "1.0.0",
+	"title": "Newsletter Signup",
+	"category": "widgets",
+	"icon": "email",
+	"example": {},
+	"attributes": {},
+	"supports": {
+		"html": false
+	},
+	"allowedBlocks": [ "core/paragraph", "core/heading", "equalstrue/newsletter-row" ],
+	"textdomain": "equalstrue",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}
