@@ -34,8 +34,7 @@ jobs:
         run: |
           mkdir -p dist/equalstrue
           rsync -a ./ dist/equalstrue/ \
-            --exclude ".git/" \
-            --exclude "node_modules/" \
+            --exclude-from=".distignore" \
             --exclude ".github/" \
             --exclude "dist/"
 

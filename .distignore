@@ -1,4 +1,5 @@
 .git
+.github
 .distignore
 .editorconfig
 .gitignore
@@ -8,8 +9,6 @@
 .stylelintignore
 blueprint.json
 composer.json
-composer-lock.json
-package-lock.json
 package.json
 svgo.config.mjs
 wp-cli.local.yml
@@ -17,4 +16,5 @@ node_modules
 vendor
 blocks-src
 build
+dist
 screens
