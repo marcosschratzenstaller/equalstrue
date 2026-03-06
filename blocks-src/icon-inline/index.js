@@ -9,13 +9,19 @@ import {
 	SearchControl,
 	__experimentalTruncate as Truncate
 } from '@wordpress/components';
-import { BlockIcon } from '@wordpress/block-editor';
-import { __ } from '@wordpress/i18n';
-import { Fragment, useState } from '@wordpress/element';
-import { registerFormatType, create, insert, useAnchor } from '@wordpress/rich-text';
 import {
+	BlockIcon,
 	RichTextToolbarButton,
 } from '@wordpress/block-editor';
+import { __ } from '@wordpress/i18n';
+import { Fragment, useState } from '@wordpress/element';
+import {
+	registerFormatType,
+	applyFormat,
+	getActiveFormat,
+	insert,
+	removeFormat,
+} from '@wordpress/rich-text';
 
 // Map of icons with their corresponding React components.
 import variations from '../icon-path/variations'; // Import custom icons map
@@ -52,7 +58,6 @@ const Icon = () => (
 const icon = {
 	name,
 	title,
-	object: true,
 	tagName: 'i',
 	className: null,
 	attributes: {
@@ -61,41 +66,53 @@ const icon = {
 	edit: Edit,
 };
 
-function InlineUI( { value, onChange, contentRef } ) {
-	const popoverAnchor = useAnchor( {
-		editableContentElement: contentRef.current,
-		settings: icon,
-	} );
+const hasFormatAt = ( formats, index ) =>
+	Array.isArray( formats?.[ index ] ) &&
+	formats[ index ].some( ( format ) => format.type === name );
 
-	return (
-		<Popover
-			placement="bottom"
-			focusOnMount={ false }
-			anchor={ popoverAnchor }
-			className="block-editor-format-toolbar__image-popover"
-		>
-			<Button
-				accessibleWhenDisabled
-				variant="primary"
-				type="submit"
-				size="compact"
-			>
-				{ __( 'Remove' ) }
-			</Button>
-		</Popover>
-	);
-}
+const getSelectedIconRange = ( value ) => {
+	const start = value?.start ?? 0;
+	const formats = value?.formats;
+
+	if ( hasFormatAt( formats, start ) ) {
+		return {
+			start,
+			end: start + 1,
+		};
+	}
+
+	if ( start > 0 && hasFormatAt( formats, start - 1 ) ) {
+		return {
+			start: start - 1,
+			end: start,
+		};
+	}
+
+	return null;
+};
 
 function Edit( {
 	value,
 	onChange,
 	onFocus,
-	isObjectActive,
-	activeObjectAttributes,
-	contentRef,
+	isActive,
 } ) {
 	const [ isModalOpen, setModalOpen ] = useState( false );
 	const [ searchTerm, setSearchTerm ] = useState( '' );
+	const selectedIconRange = getSelectedIconRange( value );
+	const activeIconFormat =
+		getActiveFormat( value, name ) ||
+		( selectedIconRange
+			? getActiveFormat(
+					{
+						...value,
+						start: selectedIconRange.start,
+						end: selectedIconRange.end,
+					},
+					name
+			  )
+			: null );
+	const isIconSelected = Boolean( selectedIconRange && activeIconFormat );
 
 	// Opens the icon selection modal.
 	const openModal = () => setModalOpen( true );
@@ -107,20 +124,62 @@ function Edit( {
 		event.preventDefault();
 
 		const className = `${ namespace }-icons--${ key }`;
-		const iconHTML = `<i class="${ className }">\u200B</i>`;
-		const iconValue = create( { html: iconHTML } );
+		const iconFormat = {
+			type: name,
+			attributes: {
+				className,
+			},
+		};
+		let nextValue;
 
-		// Always insert at the end of the selection to avoid removing text
-		const insertionPoint = value.end;
-
-		onChange(
-			insert(
+		if ( selectedIconRange ) {
+			nextValue = removeFormat(
 				value,
-				iconValue,
+				name,
+				selectedIconRange.start,
+				selectedIconRange.end
+			);
+			nextValue = applyFormat(
+				nextValue,
+				iconFormat,
+				selectedIconRange.start,
+				selectedIconRange.end
+			);
+			nextValue = {
+				...nextValue,
+				start: selectedIconRange.end,
+				end: selectedIconRange.end,
+			};
+		} else {
+			const insertionPoint = value.start;
+			const collapsedValue = {
+				...value,
+				start: insertionPoint,
+				end: insertionPoint,
+			};
+			const nextChar = value.text?.[ insertionPoint ] || '';
+			const shouldInsertSpaceAfter =
+				nextChar !== '' && ! /\s/.test( nextChar );
+
+			nextValue = insert( collapsedValue, '\u200B' );
+			nextValue = applyFormat(
+				nextValue,
+				iconFormat,
 				insertionPoint,
-				insertionPoint
-			)
-		);
+				insertionPoint + 1
+			);
+
+			if ( shouldInsertSpaceAfter ) {
+				nextValue = insert(
+					nextValue,
+					' ',
+					insertionPoint + 1,
+					insertionPoint + 1
+				);
+			}
+		}
+
+		onChange( nextValue );
 		onFocus();
 		closeModal();
 	};
@@ -134,12 +193,16 @@ function Edit( {
 
 	return (
 		<Fragment>
-			<RichTextToolbarButton
-				icon={ Icon }
-				title={ title }
-				onClick={ openModal }
-				isActive={ isObjectActive }
-			/>
+					<RichTextToolbarButton
+						icon={ Icon }
+						title={
+							isIconSelected
+								? __( 'Select icon', 'equalstrue' )
+								: title
+						}
+						onClick={ openModal }
+						isActive={ isActive || isIconSelected }
+					/>
 			{ isModalOpen && (
 				<Modal
 					title="Select an Icon"
@@ -196,19 +259,11 @@ function Edit( {
 							</Button>
 						) ) }
 					</div>
-				</Modal>
-			) }
-			{ isObjectActive && (
-				<InlineUI
-					value={ value }
-					onChange={ onChange }
-					activeObjectAttributes={ activeObjectAttributes }
-					contentRef={ contentRef }
-				/>
-			) }
-		</Fragment>
-	);
-}
+					</Modal>
+				) }
+			</Fragment>
+		);
+	}
 
 // Register the inline format for inserting the icon.
 // The format is applied as an <i> element with a dynamic class name.

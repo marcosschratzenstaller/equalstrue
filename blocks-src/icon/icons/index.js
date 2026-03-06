@@ -9,6 +9,7 @@ import { CrosshairIcon } from './crosshair';
 import { GraphUpArrowIcon } from './graph-up-arrow';
 import { HandPeaceIcon } from './hand-peace';
 import { HandWavingIcon } from './hand-waving';
+import { InputCursorTextIcon } from './input-cursor-text';
 import { ResizeIcon } from './resize';
 import { RocketTakeoffIcon } from './rocket-takeoff';
 import { SpeedometerIcon } from './speedometer';
@@ -25,6 +26,7 @@ export {
 	GraphUpArrowIcon,
 	HandPeaceIcon,
 	HandWavingIcon,
+	InputCursorTextIcon,
 	ResizeIcon,
 	RocketTakeoffIcon,
 	SpeedometerIcon,

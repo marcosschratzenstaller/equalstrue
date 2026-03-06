@@ -77,20 +77,22 @@ registerBlockType( metadata.name, {
 			</figure>
 		);
 	},
-	save: () => {
-		return (
-			<figure { ...useBlockProps.save() }>
-				<svg
+		save: () => {
+			return (
+				<figure { ...useBlockProps.save() }>
+					<svg
 					width="24"
 					height="24"
 					viewBox="0 0 24 24"
 					xmlns="http://www.w3.org/2000/svg"
-					aria-hidden="true"
-					focusable="false"
-				>
-					<InnerBlocks.Content />
-				</svg>
-			</figure>
-		);
-	},
+						aria-hidden="true"
+						focusable="false"
+					>
+						{ '\n' }
+						<InnerBlocks.Content />
+						{ '\n' }
+					</svg>
+				</figure>
+			);
+		},
 } );

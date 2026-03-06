@@ -45,6 +45,23 @@ function equalstruefront_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'equalstruefront_scripts' );
 
+function equalstruefront_enqueue_inline_icon_styles() {
+	$relative_path = 'blocks/icon-inline/style-index.css';
+	$file          = trailingslashit( get_template_directory() ) . $relative_path;
+
+	if ( ! file_exists( $file ) ) {
+		return;
+	}
+
+	wp_enqueue_style(
+		'equalstruefront-icon-inline',
+		trailingslashit( get_template_directory_uri() ) . $relative_path,
+		array(),
+		'1.0.0-' . filemtime( $file )
+	);
+}
+add_action( 'enqueue_block_assets', 'equalstruefront_enqueue_inline_icon_styles' );
+
 function equalstruefront_block_variations() {
 	if ( ! function_exists( 'register_block_style' ) ) {
 		return;
@@ -77,43 +94,52 @@ function equalstruefront_navigation_toggle( $block_content, $block ) {
 add_filter( 'render_block', 'equalstruefront_navigation_toggle', 10, 2 );
 
 /**
- * Registers the block using a `blocks-manifest.php` file, which improves the performance of block type registration.
- * Behind the scenes, it also registers all assets so they can be enqueued
+ * Registers the block(s) metadata from the `blocks-manifest.php` and registers the block type(s)
+ * based on the registered block metadata. Behind the scenes, it registers also all assets so they can be enqueued
  * through the block editor in the corresponding context.
  *
  * @see https://make.wordpress.org/core/2025/03/13/more-efficient-block-type-registration-in-6-8/
  * @see https://make.wordpress.org/core/2024/10/17/new-block-type-registration-apis-to-improve-performance-in-wordpress-6-7/
  */
 function equalstruefront_icon_block_init() {
-	/**
-	 * Registers the block(s) metadata from the `blocks-manifest.php` and registers the block type(s)
-	 * based on the registered block metadata.
-	 * Added in WordPress 6.8 to simplify the block metadata registration process added in WordPress 6.7.
-	 *
-	 * @see https://make.wordpress.org/core/2025/03/13/more-efficient-block-type-registration-in-6-8/
-	 */
-	if ( function_exists( 'wp_register_block_types_from_metadata_collection' ) ) {
-		wp_register_block_types_from_metadata_collection( __DIR__ . '/blocks', __DIR__ . '/blocks/blocks-manifest.php' );
+	$blocks_dir    = __DIR__ . '/blocks';
+	$manifest_path = $blocks_dir . '/blocks-manifest.php';
+
+	if ( ! file_exists( $manifest_path ) ) {
 		return;
 	}
 
-	/**
-	 * Registers the block(s) metadata from the `blocks-manifest.php` file.
-	 * Added to WordPress 6.7 to improve the performance of block type registration.
-	 *
-	 * @see https://make.wordpress.org/core/2024/10/17/new-block-type-registration-apis-to-improve-performance-in-wordpress-6-7/
-	 */
-	if ( function_exists( 'wp_register_block_metadata_collection' ) ) {
-		wp_register_block_metadata_collection( __DIR__ . '/blocks', __DIR__ . '/blocks/blocks-manifest.php' );
+	if ( function_exists( 'wp_register_block_types_from_metadata_collection' ) ) {
+		wp_register_block_types_from_metadata_collection( $blocks_dir, $manifest_path );
+		return;
 	}
-	/**
-	 * Registers the block type(s) in the `blocks-manifest.php` file.
-	 *
-	 * @see https://developer.wordpress.org/reference/functions/register_block_type/
-	 */
-	$manifest_data = require __DIR__ . '/blocks/blocks-manifest.php';
+
+	if ( function_exists( 'wp_register_block_metadata_collection' ) ) {
+		wp_register_block_metadata_collection( $blocks_dir, $manifest_path );
+	} elseif ( class_exists( 'WP_Block_Metadata_Registry' ) && method_exists( 'WP_Block_Metadata_Registry', 'register_collection' ) ) {
+		WP_Block_Metadata_Registry::register_collection( $blocks_dir, $manifest_path );
+	}
+
+	if (
+		class_exists( 'WP_Block_Metadata_Registry' )
+		&& method_exists( 'WP_Block_Metadata_Registry', 'get_collection_block_metadata_files' )
+	) {
+		$metadata_files = WP_Block_Metadata_Registry::get_collection_block_metadata_files( $blocks_dir );
+		if ( is_array( $metadata_files ) && ! empty( $metadata_files ) ) {
+			foreach ( array_keys( $metadata_files ) as $block_type ) {
+				register_block_type( $blocks_dir . "/{$block_type}" );
+			}
+			return;
+		}
+	}
+
+	$manifest_data = require $manifest_path;
+	if ( ! is_array( $manifest_data ) ) {
+		return;
+	}
+
 	foreach ( array_keys( $manifest_data ) as $block_type ) {
-		register_block_type( __DIR__ . "/blocks/{$block_type}" );
+		register_block_type( $blocks_dir . "/{$block_type}" );
 	}
 }
 add_action( 'init', 'equalstruefront_icon_block_init' );

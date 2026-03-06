@@ -7,3 +7,9 @@
 		user-select: none;
 	}
 }
+
+/* Keep stable selectors for LTR minified output and alias legacy `--cross` class. */
+[class~="equalstrue-icons--cross"]::before,
+[class~="equalstrue-icons--crosshair"]::before {
+	content: "\f769";
+}

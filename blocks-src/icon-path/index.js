@@ -9,9 +9,9 @@ registerBlockType( metadata.name, {
 	edit: ( { attributes } ) => {
 		const iconName = attributes.name;
 		const variation = variations.find(variation => variation.name === iconName);
-		const dValue = variation ? getPathD( variation.icon ) : false;
+		const dValue = attributes.d || ( variation ? getPathD( variation.icon ) : '' );
 
-		return iconName && variation && dValue ? (
+		return iconName && dValue ? (
 			<svg
 				width="24"
 				height="24"
@@ -29,9 +29,9 @@ registerBlockType( metadata.name, {
 	save: ( { attributes } ) => {
 		const iconName = attributes.name;
 		const variation = variations.find(variation => variation.name === iconName);
-		const dValue = variation ? getPathD( variation.icon ) : false;
+		const dValue = attributes.d || ( variation ? getPathD( variation.icon ) : '' );
 
-		return iconName && variation && dValue ? (
+		return iconName && dValue ? (
 			<path data-name={ iconName } d={ dValue }></path>
 		) : (
 			<></>
@@ -40,11 +40,14 @@ registerBlockType( metadata.name, {
 } );
 
 variations.forEach( ( variation ) => {
-	registerBlockVariation( metadata.name, {
-		name: variation.name,
-		title: variation.title,
-		icon: variation.icon,
-		attributes: variation.attributes,
-		isDefault: variation.isDefault,
+		registerBlockVariation( metadata.name, {
+			name: variation.name,
+			title: variation.title,
+			icon: variation.icon,
+			attributes: {
+				...variation.attributes,
+				d: getPathD( variation.icon ),
+			},
+			isDefault: variation.isDefault,
+		} );
 	} );
-} );

@@ -11,6 +11,12 @@
 			"source": "attribute",
 			"selector": "path",
 			"attribute": "data-name"
+		},
+		"d": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "path",
+			"attribute": "d"
 		}
 	},
 	"supports": {

@@ -33,11 +33,6 @@ $equalstrue-icons--font--src: url("#{$equalstrue-icons--font--file}.woff2?#{$equ
 		-moz-osx-font-smoothing: grayscale;
 	}
 
-	.rich-text:focus &[data-rich-text-format-boundary] {
-		background-color: transparent;
-		border-radius: 0;
-		pointer-events: none;
-	}
 }
 
 $equalstrue-icons--map: (
@@ -46,6 +41,7 @@ $equalstrue-icons--map: (
 	"binoculars": "\f18f",
 	"chat": "\f268",
 	"code-slash": "\f2c6",
+	"cross": "\f769",
 	"crosshair": "\f769",
 	"graph-up-arrow": "\f673",
 	"hand-peace": "\f7f9",

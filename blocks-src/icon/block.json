@@ -8,8 +8,8 @@
 	"example": {},
 	"attributes": {},
 	"supports": {
-		"html": true,
-        "align": true,
+		"html": false,
+		"align": true,
 		"color": {
 			"text": true,
 			"background": true

@@ -9,6 +9,7 @@ import { CrosshairIcon } from '../icon/icons';
 import { GraphUpArrowIcon } from '../icon/icons';
 import { HandPeaceIcon } from '../icon/icons';
 import { HandWavingIcon } from '../icon/icons';
+import { InputCursorTextIcon } from '../icon/icons';
 import { ResizeIcon } from '../icon/icons';
 import { RocketTakeoffIcon } from '../icon/icons';
 import { SpeedometerIcon } from '../icon/icons';
@@ -84,6 +85,13 @@ const variations = [
 		title: 'Hand waving',
 		icon: HandWavingIcon,
 		attributes: { name: 'hand-waving' }
+	},
+	{
+		isDefault: false,
+		name: 'input-cursor-text',
+		title: 'Input cursor text',
+		icon: InputCursorTextIcon,
+		attributes: { name: 'input-cursor-text' }
 	},
 	{
 		isDefault: false,
